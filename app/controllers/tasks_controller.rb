@@ -4,7 +4,7 @@ class TasksController < ApplicationController
   # GET /tasks
   # GET /tasks.json
   def index
-    @tasks = Task.all
+    @tasks = Task.all.order(:done, :due_date)
   end
 
   # GET /tasks/1
@@ -59,7 +59,7 @@ class TasksController < ApplicationController
     # 選択したカテゴリーのID
     @search_category = params['search']['category']
     # やることの内容と部分一致するタスクを取得
-    @tasks = Task.where("name LIKE '%#{@search_name}%'")
+    @tasks = Task.where("name LIKE '%#{@search_name}%'").order(:done, :due_date)
     # もしもユーザーが選択されていたら
     if @search_user.present?
       # 部分一致検索をした結果に対して、更にユーザーで絞り込む
