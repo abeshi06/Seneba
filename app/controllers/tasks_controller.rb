@@ -52,8 +52,26 @@ class TasksController < ApplicationController
   end
 
   def search
+    # 入力したやることの内容
     @search_name = params['search']['name']
-    @tasks = Task.where("name like '%#{@search_name}%'")
+    # 選択したユーザーのID
+    @search_user = params['search']['user']
+    # 選択したカテゴリーのID
+    @search_category = params['search']['category']
+    # やることの内容と部分一致するタスクを取得
+    @tasks = Task.where("name LIKE '%#{@search_name}%'")
+    # もしもユーザーが選択されていたら
+    if @search_user.present?
+      # 部分一致検索をした結果に対して、更にユーザーで絞り込む
+      @tasks = @tasks.where(user_id: @search_user)
+    end
+    # もしもカテゴリーが選択されていたら
+    if @search_category.present?
+      # 部分一致検索をした結果に対して、更にカテゴリーで絞り込む
+      @tasks = @tasks.where(category_id: @search_category)
+    end
+    # ちなみに、ユーザーやカテゴリーを選択していなかった場合、絞り込まなかった結果（すべてのユーザーとかすべてのカテゴリーとか）を取得することになる
+
     render :index
   end
 
