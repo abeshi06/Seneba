@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  due_date: 2016-07-07
+  category_id: MyString
+  name: MyString
+  done: false
+  user_id: MyString
+
+two:
+  due_date: 2016-07-07
+  category_id: MyString
+  name: MyString
+  done: false
+  user_id: MyString
