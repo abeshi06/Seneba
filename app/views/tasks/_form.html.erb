@@ -12,23 +12,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :due_date %><br>
+    <%= f.label "期限" %><br>
     <%= f.date_select :due_date %>
   </div>
   <div class="field">
-    <%= f.label :category_id %><br>
+    <%= f.label "カテゴリー" %><br>
     <%= f.collection_select :category_id, Category.all, :id, :categoryname %>
   </div>
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label "タスク" %><br>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :done %><br>
+    <%= f.label "実施区分" %><br>
     <%= f.check_box :done %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
+    <%= f.label "ユーザー" %><br>
     <%= f.collection_select :user_id, User.all, :id, :username %>
   </div>
   <div class="actions">
