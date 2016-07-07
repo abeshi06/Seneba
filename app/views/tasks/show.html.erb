@@ -7,7 +7,7 @@
 
 <p>
   <strong>Category:</strong>
-  <%= @task.category_id %>
+  <%= @task.category.categoryname %>
 </p>
 
 <p>
@@ -22,7 +22,7 @@
 
 <p>
   <strong>User:</strong>
-  <%= @task.user_id %>
+  <%= @task.user.username %>
 </p>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
