@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Tasks</h1>
+<%= form_tag(action: 'search') do %>
+  <%= text_field_tag "search[name]", @search_name %>
+  <%= submit_tag "送信" %>
+  <%= link_to "リセット", tasks_path %>
+<% end %>
 
 <table>
   <thead>
