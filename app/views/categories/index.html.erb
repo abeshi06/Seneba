@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <h1>カテゴリー一覧</h1>
+<%= form_tag(action: 'search') do %>
+  <%= text_field_tag "search[categoryname]", @search_categoryname %>
+  <%= submit_tag "送信" %>
+  <%= link_to "リセット", categories_path %>
+<% end %>
 
 <table>
   <thead>

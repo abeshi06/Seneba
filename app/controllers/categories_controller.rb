@@ -51,6 +51,13 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def search
+    @search_categoryname = params['search']['categoryname']
+    @categories = Category.where("categoryname LIKE '%#{@search_categoryname}%'")
+
+    render :index
+  end
+
   # DELETE /categories/1
   # DELETE /categories/1.json
   def destroy

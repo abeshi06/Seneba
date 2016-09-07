@@ -61,6 +61,13 @@ class UsersController < ApplicationController
     end
   end
 
+  def search
+    @search_username = params['search']['username']
+    @users = User.where("username LIKE '%#{@search_username}%'")
+
+    render :index
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
